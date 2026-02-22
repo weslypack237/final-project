@@ -126,6 +126,7 @@ nav a:hover{color:var(--text-color)}
   font-size:64px;
   font-weight:700;
   letter-spacing:-1px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -178,7 +179,7 @@ nav a:hover{color:var(--text-color)}
 
 .aboutme h1 {
   font-size: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -198,7 +199,7 @@ nav a:hover{color:var(--text-color)}
 }
 
 .projects, .previews {
-  padding: 110px 20px;
+  padding: 60px 20px;
 }
 
 .preview-card {
@@ -223,6 +224,7 @@ nav a:hover{color:var(--text-color)}
 
 /* CARDS */
 .grid{
+  padding: 0 20px 60px;
   margin-top:50px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -271,6 +273,7 @@ nav a:hover{color:var(--text-color)}
 }
 
 .glass-card {
+  gap:20px;
   backdrop-filter: blur(12px);
   background: var(--glass-bg);
   border: 1px solid rgba(255,255,255,0.1);
@@ -346,11 +349,13 @@ footer {
 .footer-section ul li a {
   color: var(--muted);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
+  margin: auto;
 }
 
 .footer-section ul li a:hover {
   color: var(--accent);
+  padding-left: 5px;
 }
 
 .social-icons {
@@ -479,9 +484,14 @@ footer {
     padding: 20px 15px;
   }
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
+
+  .footer-box{
+    text-align: left;
+  }
+
   .footer-section h3 {
     font-size: 16px;
     margin-bottom: 10px;
