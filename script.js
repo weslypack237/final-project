@@ -15,17 +15,36 @@ window.addEventListener('load', () => {
   setTimeout(typeWriter, 1000);
 });
 
-// Theme toggle
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
+// ===== APPLY SAVED THEME ON PAGE LOAD =====
+document.addEventListener("DOMContentLoaded", () => {
 
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    body.classList.toggle('light-theme');
-    themeToggle.textContent = body.classList.contains('light-theme') ? '☀️' : '🌙';
-  });
-}
+    const savedTheme = localStorage.getItem("theme");
 
+    if (savedTheme === "light") {
+        document.body.classList.add("light-theme");
+    }
+
+    const themeToggle = document.getElementById("theme-toggle");
+
+    if (!themeToggle) return;
+
+    // Set correct icon on load
+    themeToggle.textContent = document.body.classList.contains("light-theme") ? "🌙" : "☀️";
+
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-theme");
+
+        // Save theme
+        if (document.body.classList.contains("light-theme")) {
+            localStorage.setItem("theme", "light");
+            themeToggle.textContent = "🌙";
+        } else {
+            localStorage.setItem("theme", "dark");
+            themeToggle.textContent = "☀️";
+        }
+    });
+
+});
 // Back to top
 const backToTop = document.getElementById('back-to-top');
 
